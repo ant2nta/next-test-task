@@ -54,6 +54,12 @@ const Users:React.FC<Props> = ({ users }) => {
     setSortDesk(false)
   }
 
+  const setUser = (user: User) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('user', JSON.stringify(user))
+    }
+  }
+
   if (sortBy) {
     visibleUsers.sort((a, b) => {
       switch (sortBy) {
@@ -151,7 +157,7 @@ const Users:React.FC<Props> = ({ users }) => {
             <tbody>
             {visibleUsers.map((user: User) =>
                 <tr key={user.id.value || user.email}>
-                  <td onClick={() => localStorage.setItem('user', JSON.stringify(user))}>
+                  <td onClick={() => setUser(user)}>
                     <Link href={`/users/${user.id.value}`}>
                       {`${user.name.first} ${user.name.last}`}
                     </Link>
