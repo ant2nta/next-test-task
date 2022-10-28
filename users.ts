@@ -1,8 +1,7 @@
 export interface User {
   email: string,
   id: {
-    value: string,
-    name: string,
+    value: string
   },
   name: {
     title: string,
@@ -17,5 +16,8 @@ export interface User {
     large: string,
     medium: string,
     thumbnail: string
+  },
+  login: {
+    username: string
   }
 }

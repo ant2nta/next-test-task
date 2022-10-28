@@ -156,17 +156,17 @@ const Users:React.FC<Props> = ({ users }) => {
             </thead>
             <tbody>
             {visibleUsers.map((user: User) =>
-                <tr key={user.id.value || user.email}>
-                  <td onClick={() => setUser(user)}>
-                    <Link href={`/users/${user.id.value}`}>
-                      {`${user.name.first} ${user.name.last}`}
-                    </Link>
-                  </td>
-                  <td>{user.email}</td>
-                  <td>{user.gender}</td>
-                  <td>{user.location.country}</td>
-                </tr>
-              )}
+              <tr key={user.login.username}>
+                <td onClick={() => setUser(user)}>
+                  <Link href={`/users/${user.login.username}`}>
+                    {`${user.name.first} ${user.name.last}`}
+                  </Link>
+                </td>
+                <td>{user.email}</td>
+                <td>{user.gender}</td>
+                <td>{user.location.country}</td>
+              </tr>
+            )}
             </tbody>
           </table>
         </div>
